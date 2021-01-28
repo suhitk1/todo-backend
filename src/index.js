@@ -18,7 +18,8 @@ app.use(
     cookie: { maxAge: 1*60*60*1000 },
     resave: true,
     saveUninitialized: true
-  })
+  }),
+  res.header("Access-Control-Allow-Origin", "https://todofro.herokuapp.com/")
 ); // adds a property called session to req
 
 // connect
