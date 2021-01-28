@@ -12,7 +12,7 @@ app.use(cors({
     credentials: false,
     origin: "https://todofro.herokuapp.com/"
 }));
-app.use(
+app.use((req, res, next) =>{
   session({
     secret: session_secret,
     cookie: { maxAge: 1*60*60*1000 },
@@ -20,7 +20,7 @@ app.use(
     saveUninitialized: true
   }),
   res.header("Access-Control-Allow-Origin", "https://todofro.herokuapp.com/")
-); // adds a property called session to req
+}); // adds a property called session to req
 
 // connect
 const db = mongoose.createConnection("mongodb+srv://photodiaryapp:photodiaryapp@photodiarycluster.1xcdu.mongodb.net/todo?retryWrites=true&w=majority", {
