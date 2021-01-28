@@ -15,9 +15,7 @@ app.use(cors({
 app.use(
   session({
     secret: session_secret,
-    cookie: { maxAge: 1*60*60*1000 },
-    resave: true,
-    saveUninitialized: true
+    cookie: { maxAge: 1*60*60*1000 }
   })
 ); // adds a property called session to req
 
