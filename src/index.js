@@ -8,10 +8,7 @@ const session_secret = "newton";
 
 const app = express();
 app.use(express.json()); // added body key to req
-app.use(cors({
-    credentials: true,
-    origin: "https://todofro.herokuapp.com/"
-}));
+app.use(cors());
 app.use(
   session({
     secret: session_secret,
@@ -93,12 +90,6 @@ const AuthMiddleware = async (req, res, next) => {
     next();
   }
 };
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://todofro.herokuapp.com/"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
 app.get("/todo", AuthMiddleware, async (req, res) => {
   const allTodos = await todoModel.find({ userId: req.session.userId });
