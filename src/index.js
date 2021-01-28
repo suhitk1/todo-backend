@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
-const session = require("express-session");
+const session = require("cookie-session");
 
 const session_secret = "newton";
 
