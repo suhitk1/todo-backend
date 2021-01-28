@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json()); // added body key to req
 app.use(cors({
     credentials: true,
-    origin: "http://localhost:3000"
+    origin: "https://todofro.herokuapp.com/"
 }));
 app.use(
   session({
