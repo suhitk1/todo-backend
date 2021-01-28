@@ -155,4 +155,4 @@ app.get('/userinfo', AuthMiddleware, async (req, res) => {
     res.send({ userName : user.userName });
 });
 
-app.listen(9999);
+app.listen(process.env.PORT);
